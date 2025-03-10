@@ -1,0 +1,15 @@
+ // _custom.scss
+
+// Définition des variables Bootstrap avant l'importation
+$primary: #906427;
+$secondary:#B6AC97;
+$dark:#392C1E;
+$black:#292222;
+
+$font-family-sans-serif: "Montserrat",sans-serif !default;
+//$font-family-sans-serif:"Hind Madurai",sans-serif !default;
+
+// Maintenant, on importe Bootstrap pour que les variables soient prises en compte
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Ajout de styles personnalisés si besoin
