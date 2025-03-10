@@ -6,4 +6,18 @@
 // Importation de Bootstrap depuis node_modules
 @import '../node_modules/bootstrap/scss/bootstrap';
 
- 
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+main{
+    margin-bottom: 250px;
+}
+
+ footer.footer{
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+ }
