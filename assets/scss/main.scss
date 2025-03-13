@@ -19,6 +19,7 @@ main{
 
  .hero-scene{
    position: relative;
+   margin-bottom: 15px;
    &::before{
        content:"";
        position: absolute;
@@ -74,3 +75,7 @@ main{
        transition: all 0.3s;
    }
 } 
+
+.form-label{
+color: $primary;
+}
