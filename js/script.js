@@ -1,17 +1,24 @@
 //specifique a la connection
 
 const tokenCookieName = "accesstoken";
+const RoleCookieName = "role";
 const deconnectionBtn= document.getElementById("deconnection-btn");
 
 deconnectionBtn.addEventListener("click",deconnection);
 
+function getRole(){
+    return getCookie(RoleCookieName);
+}
+
 function deconnection(){
     eraseCookie(tokenCookieName);
+    eraseCookie(RoleCookieName);
     window.location.reload();
 }
 
 function setToken(token){
     setCookie(tokenCookieName, token, 7);//7 jours
+    console.log(document.cookie);
 }
 
 function getToken(){
@@ -57,9 +64,44 @@ function isConnected(){
         return true;
     }
 }
+ 
 
-if(isConnected()){
-    alert("connecté");
-}else{
-    alert(" pas connecté");
+/*
+avec data attribut en index.html
+disconnect
+connected (admid ou client)
+  admin
+  client
+*/
+
+function showAndHideElementsForRoles(){
+    const userConnected = isConnected();
+    const role = getRole();
+
+    let allElementsToEdit = document.querySelectorAll('[data-show]');
+
+    allElementsToEdit.forEach(element =>{
+        switch(element.dataset.show){
+            case 'disconnected': 
+                if(userConnected){
+                    element.classList.add("d-none");
+                }
+                break;
+            case 'connected': 
+                if(!userConnected){
+                    element.classList.add("d-none");
+                }
+                break;
+            case 'admin': 
+                if(!userConnected || role != "admin"){
+                    element.classList.add("d-none");
+                }
+                break;
+            case 'client': 
+                if(!userConnected || role != "client"){
+                    element.classList.add("d-none");
+                }
+                break;
+        }
+    })
 }
