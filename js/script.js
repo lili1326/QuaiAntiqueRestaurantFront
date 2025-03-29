@@ -3,6 +3,7 @@
 const tokenCookieName = "accesstoken";
 const RoleCookieName = "role";
 const deconnectionBtn= document.getElementById("deconnection-btn");
+const apiUrl = "http://127.0.0.1:8000/api/";
 
 deconnectionBtn.addEventListener("click",deconnection);
 
@@ -97,8 +98,8 @@ function showAndHideElementsForRoles(){
                     element.classList.add("d-none");
                 }
                 break;
-            case 'client': 
-                if(!userConnected || role != "client"){
+            case 'user': 
+                if(!userConnected || role != "user"){
                     element.classList.add("d-none");
                 }
                 break;
