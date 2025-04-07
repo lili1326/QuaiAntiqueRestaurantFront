@@ -4,14 +4,30 @@ const galerieImage = document.getElementById("allImages");
 
 //récupérer les informations des images
 
+ // Images principales
+const images = [
+    { titre: 'Chef cuisinier', url: '../assets/image/chef-cuisinier.png' },
+    { titre: 'Plat cuisiné', url: '../assets/image/Plat-cuisiné.png' },
+    { titre: 'Verre de vin', url: '../assets/image/verre-vin.jpg' },
+    { titre: 'Fruits & légumes', url: '../assets/image/légumes -fruits.png' },
+    { titre: 'Salle de restaurant', url: '../assets/image/Salle-restaurant.png' },
+    { titre: 'Plateau aliments', url: '../assets/image/plateau-aliments .png' }
+];
+
+let contenuHTML = "";
+images.forEach(image => {
+    contenuHTML += getImage(image.titre, image.url);
+});
+
+galerieImage.innerHTML = contenuHTML;
 
 
+//Exemple avec une image "dangereuse"
 let titre ='<img scr x onerror="window.location.replace(\'htpps://google.com\')"/>';
 let imgSource = "../assets/image/chef-cuisinier.png"
 let monImage = getImage(titre,imgSource);
+galerieImage.innerHTML += monImage;
 
-
-galerieImage.innerHTML = monImage;
 
 function sanitiezHtml(text){
     // Créez un élément HTML temporaire de type "div"
