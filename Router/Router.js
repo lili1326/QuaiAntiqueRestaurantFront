@@ -38,11 +38,7 @@ const LoadContentPage = async () => {
     }
     else{
       const roleUser = getRole();
-      console.log("🧠 Vérification de l'accès");
-console.log("Rôle actuel :", roleUser);
-console.log("Rôles nécessaires :", allRolesArray);
       if(!allRolesArray.includes(roleUser)){
-        console.warn("⛔ Accès refusé. Redirection vers /");
         window.location.replace("/");
       }
     }
@@ -54,7 +50,7 @@ console.log("Rôles nécessaires :", allRolesArray);
   // Ajout du contenu JavaScript
   if (actualRoute.pathJS != "") {
     // Création d'une balise script
-    var scriptTag = document.createElement("script");
+    let scriptTag = document.createElement("script");
     scriptTag.setAttribute("type", "text/javascript");
     scriptTag.setAttribute("src", actualRoute.pathJS);
 
