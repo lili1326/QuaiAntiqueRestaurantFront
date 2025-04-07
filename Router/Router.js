@@ -38,7 +38,11 @@ const LoadContentPage = async () => {
     }
     else{
       const roleUser = getRole();
+      console.log("🧠 Vérification de l'accès");
+console.log("Rôle actuel :", roleUser);
+console.log("Rôles nécessaires :", allRolesArray);
       if(!allRolesArray.includes(roleUser)){
+        console.warn("⛔ Accès refusé. Redirection vers /");
         window.location.replace("/");
       }
     }

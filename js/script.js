@@ -8,7 +8,10 @@ const apiUrl = "http://127.0.0.1:8000/api/";
 deconnectionBtn.addEventListener("click",deconnection);
 
 function getRole(){
-    return getCookie(RoleCookieName);
+    const role = getCookie(RoleCookieName);
+    if (role === "ROLE_USER") return "user";
+    if (role === "ROLE_ADMIN") return "admin";
+    return null;
 }
 
 function deconnection(){
